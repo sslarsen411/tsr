@@ -1,0 +1,71 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#back, #next{font-variant: small-caps;}
+.alert-error{background-color: #B0233A;}
+.alert-info{background-color: #C4D9EF;  color:black;}
+.alert-success{background-color: #14A44D; color: black ;}
+.alert-warn{background-color: #F2CB7C ;}
+
+@layer base {
+	*:focus-visible {@apply outline-none;}
+	html{@apply font-josefin bg-zinc-200;}
+	body{@apply  w-[100dvw];}
+	section{@apply p-2 md:px-8;	}
+	h1,h2,h3,h4{@apply font-poppins;}
+	a{@apply text-red_clouds hover:text-red-500;}
+}
+@layer components {
+	.navbar {@apply flex items-center p-2 min-h-16 w-full;}
+	.btn{ @apply no-underline;}
+	.back{@apply btn btn-amber float-left;}
+	.next{@apply btn btn-blue float-right;}	
+	.accept{@apply btn btn-blue float-right;	}
+	.main {@apply flex flex-col mx-auto text-pretty;}
+	.main h2, .question{@apply font-semibold text-lg md:text-xl my-4 ;}	
+	.main__content {@apply flex items-center justify-center gap-2 p-2 md:p-4;}
+	.main__content p{@apply text-base mt-0 mb-1;}
+	.main__content ol, .main__content ul{@apply ml-4;}
+	.instructions p{@apply my-2;}
+	.step{@apply w-[10%] bg-slate-900 text-yellow-300 text-7xl;}
+	.btn {@apply font-bold py-2 px-4 rounded;	}
+	
+	.btn-blue {@apply bg-twoshk_navy text-white hover:bg-blue-700 active:bg-cyan-500 focus:outline-none focus:ring focus:ring-indigo-400; }
+	.btn-blue:hover {@apply bg-blue-700 text-cyan-200;}
+	.btn-amber {@apply bg-amber-400 text-gray-800;}
+	.btn-amber:hover {	@apply bg-amber-200 text-gray-400;	}
+	
+	.btn-primary {@apply bg-primary text-zinc-50;}
+	.btn-primary:hover {@apply bg-blue-300 text-gray-800;	}
+	.btn-info {@apply bg-info text-zinc-50;}
+	.btn-info:hover {@apply bg-cyan-300 text-gray-800;	}
+	.btn-error {@apply bg-error text-zinc-50;}
+	.btn-error:hover {@apply bg-red-300 text-gray-800;	}
+	.btn-success {@apply bg-success text-zinc-50;}
+	.btn-success:hover {@apply bg-green-300 text-gray-800;	}
+	.btn-outline{@apply text-gray-700 bg-gray-100 border border-gray-400 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 }
+	.btn-outline:hover{@apply bg-gray-200 border border-gray-700 }
+	.btn-disabled{@apply pointer-events-none bg-gray-200 text-gray-300;}
+	.textarea-lg{@apply block p-2.5 w-full text-base text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
+		ring-2 focus:ring-twoshk_navy focus:border-indigo-700;}		
+	.help li{@apply list-disc ml-2;}
+	.alert{@apply mt-2 text-sm text-white rounded-lg p-4;}
+    
+/* Progress Bar*/ 
+  progress {@apply align-baseline;}
+  .progress{@apply relative w-full overflow-hidden h-2 appearance-none rounded-2xl bg-gray-300;}  
+  .progress-secondary::-moz-progress-bar{@apply rounded-2xl bg-red-500;}  
+  .progress::-webkit-progress-bar{@apply rounded-2xl bg-transparent;}
+  .progress-secondary::-webkit-progress-value{@apply bg-red-500;}
+  .progress__bar{@apply flex flex-col justify-start p-2 lg:px-12;}   
+  @media (min-width: 976px){
+	.progress__bar{
+	  padding-left: 3rem;
+	  padding-right: 3rem;
+	}
+  }  
+
+
+}
