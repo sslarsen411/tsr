@@ -1,4 +1,4 @@
-<x-layout>  
+<x-app-layout>  
     <div class="p-2 bg-red-300 items-center  leading-none lg:rounded-full flex lg:inline-flex" role="alert">
         <span class="flex rounded-full bg-red-900 text-zinc-50 uppercase px-2 py-1 text-base font-bold mr-3">Oops</span>
         <span class="font-semibold text-red_clouds mr-2 text-left flex-auto">We couldn&apos;t find your email in the {{session('location.company')}} customer database.</span>
@@ -13,6 +13,9 @@
         </ul>
     </div>
 @endif
+@php
+    ray(session()->all())
+@endphp
     <div class="main__content flex-col items-center mt-5 border-2">    
         <p class="self-start">You can sign in with yor name and email</p>
         <form class="w-full max-w-lg" action="/register" method="POST">
@@ -44,7 +47,7 @@
               </div>
             </div>
             <input type="hidden" name="users_id" value="{{session('location.users_id')}}">
-            <input type="hidden" name="location_id" value="{{session('location.id')}}">
+            <input type="hidden" name="location_id" value="{{session('locID')}}">
             <button type="submit"
             class="h-10 float-right my-8 px-4 uppercase text-sm bg-primary border border-l-0 border-blue-700 rounded-r shadow-sm text-blue-50 hover:text-white hover:bg-blue-400 hover:border-blue-400 focus:outline-none">
             submit</button>
@@ -54,4 +57,4 @@
             <img src="{{ Vite::asset('resources/images/google-logo.svg')}}" class="inline-block h-8 hover:animate-spin" alt="Google aproved logo">Sign in with Google
         </a>    
     </div>
-</x-layout>
+</x-app-layout>

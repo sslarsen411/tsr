@@ -1,4 +1,4 @@
-<x-layout>
+<x-app-layout>
   @if (session()->has('info'))
   <div class="container container-narrow">
    <div class="alert alert-info border border-green-400 text-green-700 text-senter px-4 py-3 rounded relative">

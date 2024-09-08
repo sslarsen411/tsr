@@ -18,12 +18,12 @@ class ClientController extends Controller
         if( $request->has('loc') ) :      
             $request->session()->put('locID', $request->query('loc'));                  
             
-            $location = Company::select('users.name', 'company', 'co_email', 'co_phone', 'min_rate', 'status' )                
+            $location = Company::select('users.name', 'companies.users_id',  'company', 'co_email', 'co_phone', 'min_rate', 'status' )                
                 ->join('users', 'companies.users_id', '=', 'users.id')
                 ->join('locations', 'companies.id', '=', 'locations.company_id')
                 ->where('locations.id', '=', $request->query('loc'))
                 ->get();
-            
+           // ray($location);
             if($location[0]->status === 'active'){
                 $request->session()->put('location', $location[0]); 
                 if($request->has('em')){  

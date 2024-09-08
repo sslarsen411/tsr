@@ -1,4 +1,4 @@
-<x-layout>  
+<x-app-layout>  
     <h2>
         Thank You on behalf of {{session('location.company')}}.
     </h2> 
@@ -32,4 +32,4 @@
 
         <img src="{{ Vite::asset('resources/images/two-shakes-lambs-md.webp')}}" alt="Our mascot, the Two Shakes AI lamb">
     </div>    
-</x-layout>
+</x-app-layout>
