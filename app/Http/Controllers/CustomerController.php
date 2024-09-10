@@ -27,7 +27,7 @@ class CustomerController extends Controller{
            return redirect('register')->withErrors($validator)->withInput();
         }else{
             $newCustomer = Customer::create($validator->validated());  
-            $newCustomer->update(['status' => 'Visited', 'how_added' => 'twoshakes']);          
+            $newCustomer->update(['state' => 'Visited', 'how_added' => 'twoshakes']);          
             $request->session()->put('cust', $newCustomer); 
             Visitor::where('id', session('visitorID'))
                 ->update(['customer_id' => $newCustomer->id]);

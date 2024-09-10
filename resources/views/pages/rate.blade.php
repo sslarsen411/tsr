@@ -1,6 +1,6 @@
 <x-app-layout>
   @php
-    //  ray($request);
+      ray(session()->all());
   @endphp
   <div class="progress__bar">    
     <progress class="progress progress-secondary w-56 mx-auto" value="5" max="100"></progress>  
@@ -26,7 +26,7 @@
           <input type="radio" name="rate" value="4.5" class="mask mask-star-2 mask-half-1 star" />
           <input type="radio" name="rate" value="5" class="mask mask-star-2 mask-half-2  star" />               
           <input type="hidden" name="customerID" value='{{session('cust.id')}}'>
-          <input type="hidden" name="locID" value='{{session('location')->id}}'>
+          <input type="hidden" name="locID" value='{{session('locID')}}'>
         </div>    
         </div>
         <div id="navigation" class="items-end mt-4 mb-2">          

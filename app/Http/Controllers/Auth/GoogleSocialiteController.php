@@ -29,7 +29,7 @@ class GoogleSocialiteController extends Controller{
                     'last_name' => $user['family_name'],
                     'email' => $user['email'],
                 ]); 
-                $newUser->update(['status' => 'Visited', 'how_added' => 'twoshakes']);            
+                $newUser->update(['state' => 'Visited', 'how_added' => 'twoshakes']);            
                 Visitor::where('id', session('visitorID'))
                     ->update(['customer_id' => $newUser->id]);
                 $request->session()->put('cust', $newUser);                              

@@ -50,6 +50,8 @@
 	.btn-disabled{@apply pointer-events-none bg-gray-200 text-gray-300;}
 	.textarea-lg{@apply block p-2.5 w-full text-base text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
 		ring-2 focus:ring-twoshk_navy focus:border-indigo-700;}		
+	.textarea{@apply block p-2 w-full text-base text-gray-900 bg-gray-50 rounded-sm border border-gray-300 
+		 focus:ring-twoshk_navy focus:border-gray-700;}		
 	.help li{@apply list-disc ml-2;}
 	.alert{@apply mt-2 text-sm text-white rounded-lg p-4;}
     

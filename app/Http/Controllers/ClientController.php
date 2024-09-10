@@ -7,6 +7,7 @@ use App\Models\Visitor;
 use Illuminate\Http\Request;
 use App\Mail\AccountNotActive;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Cache;
 
 class ClientController extends Controller
 {
@@ -24,6 +25,7 @@ class ClientController extends Controller
                 ->where('locations.id', '=', $request->query('loc'))
                 ->get();
            // ray($location);
+           //Cache::put('loc', $location, now()->addMinutes(10));
             if($location[0]->status === 'active'){
                 $request->session()->put('location', $location[0]); 
                 if($request->has('em')){  
