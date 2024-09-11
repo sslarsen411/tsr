@@ -18,7 +18,7 @@
   @endphp 
 @if (session()->has('info'))
     <p>A acknowledgement email has been sent to {{session('cust.email')}}. You&apos;ll be contacted shortly.</p>
-    <p>You can contact us at {{session('location.company')}} by phone: {{fromE164(session('location.ctc_phone'))}}, or email: {{session('location.email')}}.</p>
+    <p>You can contact us at {{session('location.company')}} by phone: {{fromE164(session('location.co_phone'))}}, or email: {{session('location.co_email')}}.</p>
 @else
     <p class="text-xl mb-3">
       It looks like your experience may not have met your expectation. We want to hear about it. 

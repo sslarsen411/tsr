@@ -9,21 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
 class ReviewController extends Controller{
-/* Initialize a review */
-public function create(Request $request)    {
-        $newReview  = Review::create([
-            'customer_id' => $request->customerID,
-            'location_id' => $request->locID ,
-            'rate' => $request->rate,
-            'status' => 'Started'
-        ]);
-        $request->session()->put('rate', $request->rate);
-        $request->session()->put('reviewID', $newReview->id);
-        if($request->rate < session('location')->min_rate){
-            return redirect('/care');
-        }
-        return redirect('/instr');
-    }
+ 
    
     public function startQuestions(){
         $firstQ = Question::find(1);
@@ -78,8 +64,9 @@ public function create(Request $request)    {
             $request->session()->forget('ckbox');
             $request->session()->forget('concerns');
         }
-        $review = strip_tags($request->concerns);       
-      //  Review::find( session('reviewID'))->update(['review' =>  $review, ]);
+        $review = strip_tags($request->concerns); 
+        ray(session()->all())      ;
+      Review::find( session('reviewID'))->update(['review' =>  $review, ]);
     /* TODO send emails */
 
         return back()->with('info', session('cust.first_name') . ', thank you for your feedback.');  

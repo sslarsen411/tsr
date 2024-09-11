@@ -1,5 +1,5 @@
 <div>
-    <x-form action="/initReview" >      
+    <x-form  >      
         <div class="main__content flex-col border-2"> 
           <p class="font-semibold">
           Choose from &half; star to 5 stars
@@ -20,20 +20,17 @@
           <input type="hidden" name="locID" value='{{session('locID')}}'>
         </div>    
         </div>
-        <div id="navigation" class="items-end mt-4 mb-2">          
-          {{-- <button id="btnRate" type="submit" class="next btn-disabled">Choose a rating</button> --}}
-          <x-secondary-button type="submit" class="next float-right" >Start</x-secondary-button>
-          {{-- <div id="dynamic_content" class="w-full mx-auto flex"><p class="text-white mt-4">placeholder</p></div> --}}
-          <div id="dynamic_content" class="w-full mx-auto flex">
-            <p class=" mt-4">
-                @if ($rating)
-                    You gave us <strong>{{ $rating }}</strong> {{ Str::plural('star', $rating) }}. Now click the <span class="text-primary">NEXT</span> button.
-                @else 
-                    Choose a rating.
-                @endif
-            </p>
-            
-        </div>
+        <div id="navigation" class="items-end mt-4 mb-2">       
+            <x-secondary-button type="submit" class="next float-right {{ $rating?'animate-bounce':'' }}" rating="{{$rating}}">Start</x-secondary-button>
+            <div id="dynamic_content" class="w-full mx-auto flex">
+                <p class=" mt-4">
+                    @if ($rating)
+                        You gave us <strong>{{ $rating }}</strong> {{ Str::plural('star', $rating) }}. Now click the <span class="text-primary">NEXT</span> button.
+                    @else 
+                        Choose a rating.
+                    @endif
+                </p>
+            </div>
         </div>
     </x-form>
 </div>

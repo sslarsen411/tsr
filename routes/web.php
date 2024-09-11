@@ -33,7 +33,7 @@ Route::get('/rate',  function(Request $request){return view('pages.rate',['reque
 Route::view('/instr', 'pages.instr')->name('pages.instr');
 Route::view('/care', 'pages.care')->name('pages.care');
 Route::controller(ReviewController::class)->group( function(){
-  Route::post('/initReview', 'create')->name('init');
+  Route::post('/doCare',  'doCare')->name('doCare');
   Route::get('/startQuestions', 'startQuestions')->name('instructions');
   Route::get('/question/',  'handleQuestion')->name('question');
   Route::post('/questions',  'handleQuestion')->name('questions');
