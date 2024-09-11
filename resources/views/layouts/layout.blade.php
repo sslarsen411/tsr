@@ -7,7 +7,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-        @vite('resources/css/app.css')  
+        @vite('resources/css/app.css') 
+        {{-- @include('sweetalert::alert')  --}}
         @if (Request::segment(1) === 'rate')
             @vite('resources/css/rateTW.css')  
         @endif   
@@ -15,6 +16,9 @@
         {{-- <link rel="icon" href="{{ URL::asset('favicon.svg') }}" type="image/svg+xml"/>    --}}
     </head>
     <body class="mx-auto max-w-prose bg-twoshk_navy border-b-[1rem] border-b-twoshk_navy">
+        @php
+          //  ray(session()->all());
+        @endphp
         <x-header /> 
         <div class="bg-zinc-50 w-[96%] h-[96%] m-auto p-2">
         {{-- ALERTS --}}
@@ -28,8 +32,15 @@
             <section class="main">
                 {{$slot}}
             </section>              
-            <x-footer />     
         </div>
+        <x-footer />  
         @vite('resources/js/app.js')
+        @livewireScripts
+        @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@11"])
+        <x-livewire-alert::scripts />        
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>        
+        <x-livewire-alert::scripts />
+        
+       
     </body>
 </html>

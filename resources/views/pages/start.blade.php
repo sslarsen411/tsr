@@ -16,11 +16,8 @@
                         onblur="this.placeholder = 'your.name@gmail.com'"
                         />
                         <x-secondary-button type="submit" class="!text-xs self-start rounded-nome h-11">
-                            {{-- {{$button}} --}} Start
-                       </x-secondary-button>  
-                {{-- <button type="submit"
-                class="h-10 px-4 uppercase text-sm bg-twoshk_navy border border-l-0 border-blue-700 rounded-r shadow-sm text-blue-50 hover:text-white hover:bg-blue-400 hover:border-blue-400 focus:outline-none">
-                start</button> --}}
+                            Start
+                       </x-secondary-button>            
             </div>
         </x-form>
       <p class="!text-xs self-start">
@@ -30,7 +27,6 @@
     </div>    
     <div id="navigation" class="items-end my-2 mx-auto"> 
         <p>Feedback in &ldquo;<strong>two shakes</strong> of a lamb&apos;s tail.&rdquo;</p>
-
         <img src="{{ Vite::asset('resources/images/two-shakes-lambs-md.webp')}}" alt="Our mascot, the Two Shakes AI lamb">
     </div>    
 </x-app-layout>

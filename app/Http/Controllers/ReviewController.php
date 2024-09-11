@@ -52,15 +52,8 @@ public function create(Request $request)    {
         $question = Question::find($request->key);
         return view('pages.editAnswer', ['answer'=> $request->all(), 'question' => $question->title]);
     }
-    public function editAnswer(Request $request){
-        $review =  Review::find( session('reviewID'));
-        $ans = updateAnswers($review->answers, $request->question_no, strip_tags($request->newAns) ); 
-        $review->update(['answers' => $ans]);
-        return view('pages.doReview', ['review'=> $review])->with('success', 'Answer updated');        
-    }
 
-    public function composeReview(){
-       // $review =  Review::find( session('reviewID'));
+    public function composeReview(){ 
         $review = Cache::get('review', function () {
             return Review::find( session('reviewID'));
         });       

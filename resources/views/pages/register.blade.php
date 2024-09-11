@@ -1,11 +1,13 @@
 <x-app-layout>  
-    <div class="p-2 bg-red-300 items-center  leading-none lg:rounded-full flex lg:inline-flex" role="alert">
-        <span class="flex rounded-full bg-red-900 text-zinc-50 uppercase px-2 py-1 text-base font-bold mr-3">Oops</span>
-        <span class="font-semibold text-red_clouds mr-2 text-left flex-auto">We couldn&apos;t find your email in the {{session('location.company')}} customer database.</span>
+    <div class="p-2 bg-rose-200 items-center  leading-none lg:rounded-full flex lg:inline-flex" role="alert">
+        <span class="flex rounded-full bg-red-900 text-zinc-50 uppercase px-2 py-1 text-base font-bold mr-3">Oops!</span>
+        <span class="font-semibold text-red_clouds mr-2 text-left flex-auto">
+          We couldn&apos;t find you in the database. Please sign in.
+        </span>
     </div>
     @if ($errors->any())
-    <div class="mt-8 p-2 bg-red-300 text-red_clouds items-center  leading-none lg:rounded-full flex lg:inline-flex">
-      <span class="flex rounded-full bg-red-900 text-zinc-50 uppercase px-2 py-1 text-base font-bold mr-3">Oops</span>
+    <div class="mt-8 p-2 bg-rose-200 text-red_clouds items-center  leading-none lg:rounded-full flex lg:inline-flex">
+      <span class="flex rounded-full bg-red-900 text-zinc-50 uppercase px-2 py-1 text-base font-bold mr-3">Oops!</span>
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -47,9 +49,8 @@
             </div>
             <input type="hidden" name="users_id" value="{{session('location.users_id')}}">
             <input type="hidden" name="location_id" value="{{session('locID')}}">
-            <button type="submit"
-            class="h-10 float-right my-8 px-4 uppercase text-sm bg-primary border border-l-0 border-blue-700 rounded-r shadow-sm text-blue-50 hover:text-white hover:bg-blue-400 hover:border-blue-400 focus:outline-none">
-            submit</button>
+            <x-primary-button class="animate-bounce float-right mt-5">Sign In</x-primary-button>
+           
           </x-form>
         <p class="self-start">Or use your Google account</p>
         <a type="button" href="{{ url('auth/google') }}" class="my-4 btn ring-2 bg-gray-100 !text-blue-900 text-xl rounded-lg hover:bg-zinc-100 hover:!text-teal-400">

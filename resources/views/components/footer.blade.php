@@ -1,9 +1,9 @@
-<footer class="relative top-full w-full mx-auto">
+<footer class="relative top-full w-full mx-auto text-twoshk_tan">
     <div id="copyright" class="text-center mt-4">
         <div class="text-[.75rem]">
             <form id="frmLogout" class="inline-block" action="{{ url('logout') }}" method="POST">
                 @csrf
-                <a href="#"  onclick="document.getElementById('frmLogout').submit();">Logout</a> 
+                <a href="#"  onclick="document.getElementById('frmLogout').submit(); ">Logout</a> 
             </form>
             | <a href="/policies/privacy">Privacy</a> | <a href="/policies/terms">Terms</a>
         </div>

@@ -1,4 +1,4 @@
-<x-layout>
+<x-app-layout>
     <h2>Cookies Policy</h2>
 <p>Last updated: June 23, 2024</p>
 <p>This Cookies Policy explains what Cookies are and how We use them. You should read this policy so You can understand what type of cookies We use, or the information We collect using Cookies and how that information is used. This Cookies Policy has been created with the help of the <a href="https://www.termsfeed.com/cookies-policy-generator/" target="_blank">Cookies Policy Generator</a>.</p>
@@ -59,4 +59,4 @@
 <ul>
 <li>By email: mojo@mojoimpact.com</li>
 </ul>
-</x-layout>
+</x-app-layout>

@@ -13,9 +13,6 @@
                     
                     <x-form action="/doAnEdit" >                    
                         <button class="btn btn-outline">Update</button>
-                        <input type="hidden" name="reviewID" value="{{$key}}">
-                        {{-- <input type="hidden" name="ans" value="{{$answer}}">
-                        <input type="hidden" name="reviews" value="{{$review->answers}}"> --}}
                     </x-form>
                 </td>
             </tr>

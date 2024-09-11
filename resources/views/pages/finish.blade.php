@@ -7,18 +7,23 @@
     <h2 >Next</h2>
     <p>
         This review been copied to your clipboard. Click or tap on the button below to <strong>post</strong> it on our Google Business Profile.
-        And thanks again from <strong>{{session('location')->company}}</strong>.</p>
+        And thanks again from <strong>{{session('location.company')}}</strong>, we apprciiate your feedback.</p>
+        <h3 class="mt-5">
+            Here&apos;s the <strong>direct link</strong> to the review page:</h3>
     <a type=button class="mt-8 w-52 mx-auto text-center btn btn-outline animate-bounce" href="{{session('location')->gbp_url}}">
         <img src="{{ Vite::asset('resources/images/google-logo.svg')}}" class="inline-block h-8 hover:animate-spin" alt="Google aproved logo">
         Post Your Review
     </a>
     <h2>
-        How to Post your review
+        How to post your review on Google
     </h2>     
     <div class="main__content flex-col border-2 ">    
         <div id="directions" class="direction grid grid-cols-2 items-center gap-4 px-0">            
             <div>
                 <ol class="list-decimal">
+                    <li>
+                        Click/tap the button above
+                    </li>
                     <li>
                         Enter your star rating
                     </li>
@@ -26,7 +31,7 @@
                         Paste your review
                     </li>
                     <li>
-                        Click or tap Post
+                        Click or tap Post &mdash; Done!
                     </li>
                 </ol>
             </div>      

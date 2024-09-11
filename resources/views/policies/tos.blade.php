@@ -1,4 +1,4 @@
-<x-layout>
+<x-app-layout>
     <h2>
         Two Shakes Review Terms of Service 
         <span class="float-right"><a type="button" href="{{ url()->previous() }}" class="btn btn-blue">Back</a></span>
@@ -88,4 +88,4 @@ You agree that the original English text shall prevail in the case of a dispute.
 <ul>
 <li>By email: mojo@mojoimpact.com</li>
 </ul>
-</x-layout>
+</x-app-layout>

@@ -1,10 +1,10 @@
 <x-app-layout> 
     @php
-        $rev = unserialize($review->answers);  
+        $answers = unserialize($review->answers);  
         ray(session()->all())
     @endphp
     <h2 class="align-middle">
-        {{session('cust.first_name')}}, you&apos;re almost done.
+        {{session('cust.first_name')}}, you&apos;re almost done!
     <a href="/finish" type="button" class="animate-bounce text-base btn btn-success mb-4 text-center float-right ">Generate</a>
 </h2>
 <h3 class="mb-9 font-semibold">Click or tap the <span class="text-success font-weight-700">green</span> button to generate your review</h3>
@@ -20,11 +20,12 @@
     </h2>
     <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
         <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-            <livewire:edit-answers-form  :answers="$rev" :reviewID="session('reviewID')"/>
+            <livewire:edit-answers-form  :answers="$answers" :review="$review"/>
         </div>
     </div> 
   </div>
   <script>
+    // Accordion toggle
         document.getElementById('accordion-collapse-heading-1').addEventListener('click', function (e) {
             if ( document.getElementById('accordion-collapse-body-1').classList.contains("hidden"))
                 document.getElementById('accordion-collapse-body-1').classList.remove("hidden")
@@ -32,7 +33,4 @@
                 document.getElementById('accordion-collapse-body-1').classList.add("hidden")            
         })
   </script>
-  
-
-
 </x-app-layout>

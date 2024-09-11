@@ -1,4 +1,4 @@
-<x-layout>
+<x-app-layout>
     <h2>
         Two Shakes  Review Privacy Policy 
         <span class="float-right"><a type="button" href="{{ url()->previous() }}" class="btn btn-blue">Back</a></span>
@@ -161,4 +161,4 @@
 <ul>
 <li>By email: mojo@mojoimpact.com</li>
 </ul>
-</x-layout>
+</x-app-layout>

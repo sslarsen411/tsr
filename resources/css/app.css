@@ -16,6 +16,7 @@
 	section{@apply p-2 md:px-8;	}
 	h1,h2,h3,h4{@apply font-poppins;}
 	a{@apply text-red_clouds hover:text-red-500;}
+	footer a{@apply text-amber-200 hover:text-amber-500 hover:underline;}
 }
 @layer components {
 	.navbar {@apply flex items-center p-2 min-h-16 w-full;}
