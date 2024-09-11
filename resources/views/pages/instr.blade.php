@@ -1,4 +1,7 @@
 <x-app-layout>
+    {{-- @php
+        ray(Cache::get('review')->rate);
+    @endphp --}}
     <div class="progress__bar">       
         <progress class="progress progress-secondary w-56 mx-auto" value="5" max="100"></progress>         
     </div>

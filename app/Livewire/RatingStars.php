@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Review;
 use Livewire\Component;
+use Illuminate\Support\Facades\Cache;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class RatingStars extends Component{
@@ -18,8 +19,10 @@ class RatingStars extends Component{
         ]);
         session()->put('rate', $this->rating);
         session()->put('reviewID', $newReview->id);
+       $revCache =  Cache::put('review', $newReview, 3600);
+       ray($revCache);
         if($this->rating < session('location.min_rate')){            
-           alert()->question('It looks like you have concerns', 'Please let us know how we can improve your experience')->showDenyButton=false;
+           alert()->info('Let us help', 'Tell us how we can improve your experience');
             return redirect('/care');
         }
         return redirect('/instr');       

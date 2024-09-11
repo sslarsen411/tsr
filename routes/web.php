@@ -27,13 +27,12 @@ Route::controller(GoogleSocialiteController::class)->group( function(){
   Route::get('auth/google', 'redirectToGoogle')->name('google.redirect');  // redirect to google login
   Route::get('callback/google', 'handleCallback')->name('google.callback');    // callback route after google account chosen
 });
-
   /* REVIEW PROCESS*/
 Route::get('/rate',  function(Request $request){return view('pages.rate',['request'=> $request]);})->name('pages.rate');
 Route::view('/instr', 'pages.instr')->name('pages.instr');
 Route::view('/care', 'pages.care')->name('pages.care');
 Route::controller(ReviewController::class)->group( function(){
-  Route::post('/doCare',  'doCare')->name('doCare');
+//  Route::post('/doCare',  'doCare')->name('doCare');
   Route::get('/startQuestions', 'startQuestions')->name('instructions');
   Route::get('/question/',  'handleQuestion')->name('question');
   Route::post('/questions',  'handleQuestion')->name('questions');
@@ -42,8 +41,6 @@ Route::controller(ReviewController::class)->group( function(){
   Route::post('/editAnswer',  'editAnswer')->name('editAnswer');
   Route::get('/finish', 'composeReview')->name('finish');
 });
-
-  
 /* SITE POLICIES */
 Route::prefix('policies')->group(function () {
     Route::view('/cookie', 'cookie')->name('cookie');

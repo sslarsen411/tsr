@@ -13,7 +13,7 @@ class CustomerController extends Controller{
             return redirect('/rate');
         }else{
             Alert::html('Well, this is embarrassing!', '<h3 class="text-xl text-balance mb-5">' . session('location.company') . ' forgot to tell us about you!</h3> 
-                 <p class="text-balance">Please sign in with your name and email or with Google.</p>', 'warning')->showConfirmButton('OK', '#3085d6');;
+                 <p class="text-balance">Please sign in with your name and email or with Google.</p>', 'warning')->showConfirmButton('OK', '#3085d6');
             return redirect('/register')->with('email', $request->email);
         }
     }

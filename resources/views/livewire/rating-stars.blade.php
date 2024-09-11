@@ -21,7 +21,7 @@
         </div>    
         </div>
         <div id="navigation" class="items-end mt-4 mb-2">       
-            <x-secondary-button type="submit" class="next float-right {{ $rating?'animate-bounce':'' }}" rating="{{$rating}}">Start</x-secondary-button>
+            <x-secondary-button type="submit" class="next float-right {{ $rating?'animate-bounce':'' }}" disable="{{$rating}}">Start</x-secondary-button>
             <div id="dynamic_content" class="w-full mx-auto flex">
                 <p class=" mt-4">
                     @if ($rating)
