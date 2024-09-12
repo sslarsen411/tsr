@@ -33,8 +33,7 @@ function getCustomerByEmail(Request $request, $inClient = '', $inEmail = ''){
         ->update(['customer_id' => $cust->id]);        
         return TRUE;
     }
-   return FALSE;       
-
+   return FALSE;
 }
 /**
  * Convert a phone input to E164

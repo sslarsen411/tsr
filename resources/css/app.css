@@ -27,7 +27,7 @@
 	.main {@apply flex flex-col mx-auto text-pretty;}
 	.main h2, .question{@apply font-semibold text-lg md:text-xl my-4 ;}	
 	.main__content {@apply flex items-center justify-center gap-2 p-2 md:p-4;}
-	.main__content p{@apply text-base mt-0 mb-1;}
+	/* .main__content p{@apply text-base mt-0 mb-1;} */
 	.main__content ol, .main__content ul{@apply ml-4;}
 	.instructions p{@apply my-2;}
 	.step{@apply w-[10%] bg-slate-900 text-yellow-300 text-7xl;}

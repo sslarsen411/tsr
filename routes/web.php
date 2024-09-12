@@ -12,7 +12,7 @@ Route::view('/home', 'pages.home')->name('pages.home');
 Route::view('/nogo', 'pages.nogo')->name('pages.nogo');
 Route::get('/admin/',  function(){abort(401);});
 
-Route::get('/', [ClientController::class, 'showCorrectPage'])->name('pages.start');
+Route::get('/', [ClientController::class, 'showCorrectPage'])->name('index');
 Route::view('/start', 'pages.start')->name('pages.start');
 Route::view('/register', 'pages.register')->name('pages.register');
 

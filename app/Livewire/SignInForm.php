@@ -6,26 +6,24 @@ use App\Models\Visitor;
 use Livewire\Component;
 use App\Models\Customer;
 
-class SignInForm extends Component
-{
+class SignInForm extends Component{
     public $first_name;
     public $last_name;
-    public $email;
-
+    public $email;   
     protected $rules = [
         'first_name' => 'required|alpha|max:45',
         'last_name' => 'required|alpha|max:45',
         'email' => 'required|email',
     ];
-
-    public function updated($propertyName)
-    {
+    public function mount() {
+        if (session('email')) {
+	    $this->email = session('email');
+        }
+    }
+    public function updated($propertyName){
         $this->validateOnly($propertyName);
     }
-
     public function submitForm(){
-    
-   // ray(session()->all());
     $newCustomer = Customer::create([
         'users_id' => session('location.users_id'),
         'location_id' => session('locID'),
@@ -35,13 +33,14 @@ class SignInForm extends Component
         'state' => 'Visited',
         'how_added' => 'twoshakes',
     ]);  
-        session()->put('cust', $newCustomer); 
+        session()->put('cust', $newCustomer);
+        session()->forget('email'); 
+        //ray(session()->all());
         Visitor::where('id', session('visitorID'))
             ->update(['customer_id' => $newCustomer->id]);
         return redirect('/rate');            
     }
-    public function render()
-    {
+    public function render(){
         return view('livewire.sign-in-form');
     }
 }

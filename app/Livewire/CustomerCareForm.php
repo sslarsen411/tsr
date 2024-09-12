@@ -30,7 +30,6 @@ class CustomerCareForm extends Component{
             return view('livewire.customer-care-form');
             }
         }
-
         // $value = Cache::get('key', function () {
         //     return DB::table(/* ... */)->get();
         // });

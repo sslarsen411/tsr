@@ -9,23 +9,20 @@ use App\Mail\AccountNotActive;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Cache;
 
-class ClientController extends Controller
-{
+class ClientController extends Controller{
     public function showCorrectPage(Request $request){
         $newVisitor  = Visitor::create([
             'IP' => $_SERVER['REMOTE_ADDR']
         ]);
         $request->session()->put('visitorID', $newVisitor->id);
         if( $request->has('loc') ) :      
-            $request->session()->put('locID', $request->query('loc'));                  
-            
+            $request->session()->put('locID', $request->query('loc'));
             $location = Company::select('users.name', 'companies.users_id',  'company', 'co_email', 'co_phone', 'min_rate', 'status' )                
                 ->join('users', 'companies.users_id', '=', 'users.id')
                 ->join('locations', 'companies.id', '=', 'locations.company_id')
                 ->where('locations.id', '=', $request->query('loc'))
                 ->get();
-           // ray($location);
-           //Cache::put('loc', $location, now()->addMinutes(10));
+
             if($location[0]->status === 'active'){
                 $request->session()->put('location', $location[0]); 
                 if($request->has('em')){  
