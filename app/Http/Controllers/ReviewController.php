@@ -18,7 +18,6 @@ class ReviewController extends Controller{
     }   
 
     public function handleQuestion(Request $request){
-    //    $review =  Review::find( session('reviewID'));        
         $review =  Cache::get('review');        
     /* Add current answer to the answer array */
         $ans = updateAnswers($review->answers, $request->question_no, strip_tags($request->answer) ); 
@@ -50,26 +49,4 @@ class ReviewController extends Controller{
         $review->update(['review' =>  $composedReview, 'status' => 'Completed']);
         return view('pages.finish',['review' => $composedReview]);
     }
-//     public function doCare(Request $request){
-// // LOOKUP phone
-//         $ph = NULL;
-//         if($request->has('ckCallMe')){
-//             if($request->phone === NULL){
-//                 $request->session()->put('ckbox','checked');
-//                 $request->session()->put('concerns', $request->concerns);
-//                 return back()->with('error', session('cust.first_name') . ', enter your phone number or uncheck the box.');  
-//             }
-//             $ph = toE164( $request->phone );   
-//             Customer::find(session('cust.id'))->update(['phone' => $ph]);
-//         }else{
-//             $request->session()->forget('ckbox');
-//             $request->session()->forget('concerns');
-//         }
-//         $review = strip_tags($request->concerns); 
-//         ray(session()->all())      ;
-//       Review::find( session('reviewID'))->update(['review' =>  $review, ]);
-//     /* TODO send emails */
-
-//         return back()->with('info', session('cust.first_name') . ', thank you for your feedback.');  
-//     }   
 }

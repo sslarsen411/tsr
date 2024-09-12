@@ -17,27 +17,27 @@ class CustomerController extends Controller{
             return redirect('/register')->with('email', $request->email);
         }
     }
-    public function register(Request $request){      
-        $rules = [
-            'email' => 'required|email',
-            'first_name' => 'required|string|max:45',
-            'last_name' => 'required|string|max:45',
-            'users_id' => 'required',
-            'location_id' => 'required',
-        ];
-        $validator = Validator::make($request->all(), $rules);
-        if ($validator->fails()) {
-            Alert::error('Error', $validator->errors()->first());
-           return redirect('register')->withErrors($validator)->withInput();
-        }else{
-            $newCustomer = Customer::create($validator->validated());  
-            $newCustomer->update(['state' => 'Visited', 'how_added' => 'twoshakes']);          
-            $request->session()->put('cust', $newCustomer); 
-            Visitor::where('id', session('visitorID'))
-                ->update(['customer_id' => $newCustomer->id]);
-            return redirect('/rate');            
-        }          
-    }    
+    // public function register(Request $request){      
+    //     $rules = [
+    //         'email' => 'required|email',
+    //         'first_name' => 'required|string|max:45',
+    //         'last_name' => 'required|string|max:45',
+    //         'users_id' => 'required',
+    //         'location_id' => 'required',
+    //     ];
+    //     $validator = Validator::make($request->all(), $rules);
+    //     if ($validator->fails()) {
+    //         Alert::error('Error', $validator->errors()->first());
+    //        return redirect('register')->withErrors($validator)->withInput();
+    //     }else{
+    //         $newCustomer = Customer::create($validator->validated());  
+    //         $newCustomer->update(['state' => 'Visited', 'how_added' => 'twoshakes']);          
+    //         $request->session()->put('cust', $newCustomer); 
+    //         Visitor::where('id', session('visitorID'))
+    //             ->update(['customer_id' => $newCustomer->id]);
+    //         return redirect('/rate');            
+    //     }          
+    // }    
     public function logout(Request $request){
         $request->session()->flush();
         $request->session()->regenerateToken();

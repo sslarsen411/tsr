@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('rate', 4);
             $table->longtext('answers')->nullable();
             $table->longtext('review')->nullable();
-            $table->enum('status', ['Started', 'Completed', 'Verified'])->default('Started');
+            $table->enum('status', ['Started', 'Completed', 'Verified', 'Negative'])->default('Started');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable()->useCurrent()->useCurrentOnUpdate();
 

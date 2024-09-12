@@ -10,7 +10,7 @@ use App\Http\Controllers\Auth\GoogleSocialiteController;
 
 Route::view('/home', 'pages.home')->name('pages.home');
 Route::view('/nogo', 'pages.nogo')->name('pages.nogo');
-Route::get('/admin/',  function(){abort(403);});
+Route::get('/admin/',  function(){abort(401);});
 
 Route::get('/', [ClientController::class, 'showCorrectPage'])->name('pages.start');
 Route::view('/start', 'pages.start')->name('pages.start');
@@ -19,7 +19,7 @@ Route::view('/register', 'pages.register')->name('pages.register');
 /* Sign in a visitor */
 Route::controller(CustomerController::class)->group( function(){
     Route::post('/initialize', 'initialize')->name('initialize');
-    Route::post('/register', 'register')->name('register');
+//    Route::post('/register', 'register')->name('register');
     Route::post('/logout', 'logout')->name('logout');
   });
   /* Google Oauth2 sign in  */

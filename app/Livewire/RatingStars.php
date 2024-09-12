@@ -20,9 +20,9 @@ class RatingStars extends Component{
         session()->put('rate', $this->rating);
         session()->put('reviewID', $newReview->id);
        $revCache =  Cache::put('review', $newReview, 3600);
-       ray($revCache);
+      // ray($revCache);
         if($this->rating < session('location.min_rate')){            
-           alert()->info('Let us help', 'Tell us how we can improve your experience');
+           alert()->info('What happened?', 'Tell us what happened and how we can improve your experience');
             return redirect('/care');
         }
         return redirect('/instr');       

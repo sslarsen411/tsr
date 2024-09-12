@@ -25,11 +25,15 @@
                         @yield('code') 
                         |
                         @yield('message')
-                    </div>
-
-                   
+                    </div>                   
                 </div>
                 @yield('description')
+                <p class="my-5">
+                    You can return to the previous page with your browser&apos;s back or use the <strong>Go Back</strong> button below.
+                </p>
+                <div>
+                    <span class="mt-8 inline-block float-right"><a type="button" href="{{ url()->previous() }}" class="btn btn-blue">Go Back</a></span>
+                </div>
             </div>
         </div>
     </body>
