@@ -6,7 +6,7 @@
     </h2>
     <livewire:rating-stars />
     <h2>
-      Assistance &amp; Suggestions
+      Help
     </h2>
     <div class="main__content flex-col items-start border-2">
       <h3 class="text-lg md:text:xl lg:text-2xl">You can select <strong>full</strong> or <strong>&frac12;</strong> stars:</h3>

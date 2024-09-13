@@ -18,4 +18,13 @@ class Company extends Model
         'multi_loc',
         'status',
     ];
+    public function users(){
+        return $this->belongsTo(User::class, 'company_id');
+    }
+    public function locations(){
+        return $this->hasMany(Location::class);
+    }
+    public function customers(){
+        return $this->hasMany(Customer::class);
+    }
 }

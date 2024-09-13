@@ -25,9 +25,9 @@
             <div id="dynamic_content" class="w-full mx-auto flex">
                 <p class=" mt-4">
                     @if ($rating)
-                        You gave us <strong>{{ $rating }}</strong> {{ Str::plural('star', $rating) }}. Now click the <span class="text-primary">NEXT</span> button.
+                        You gave us <strong>{{ $rating }}</strong> {{ Str::plural('star', $rating) }}. Now press the <span class="text-primary">START</span> button to begin.
                     @else 
-                        Choose a rating.
+                        Choose your stars.
                     @endif
                 </p>
             </div>

@@ -9,7 +9,6 @@ class Review extends Model
 {
     use HasFactory;
     public $table = 'reviews';
-
     protected $fillable = [
         'customer_id',
         'location_id',
@@ -17,5 +16,11 @@ class Review extends Model
         'answers',
         'review',
         'status'       
-    ];
+    ];    
+    public function locations()    {
+        return $this->belongsTo(Location::class, 'location_id');
+    }
+    public function customers()    {
+        return $this->belongsTo(Customer::class, 'customer_id');
+    }
 }

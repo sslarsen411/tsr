@@ -1,37 +1,29 @@
 <x-app-layout> 
-  @php
-       //$review =  Review::find( session('reviewID')); 
-    //   $answers = unserialize(review->answers);
-  @endphp
     <h2 class="align-middle">
         {{session('cust.first_name')}}, you&apos;re almost done!
     <a href="/finish" type="button" class="animate-bounce text-base btn btn-success mb-4 text-center float-right ">Generate</a>
 </h2>
 <h3 class="mb-9 font-semibold">Click or tap the <span class="text-success font-weight-700">green</span> button to generate your review</h3>
-<div id="accordion-edit" data-accordion="collapse">
-    <h2 id="accordion-collapse-heading-1">
-      <button type="button"       data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1"
-      class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0  border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200  hover:bg-gray-100  gap-3">
-        <span class="text-base">Update Your Answers</span>
-        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
-        </svg>
+<div x-data="{ hover: false }">
+  <span x-on:mouseover="hover = true" x-on:mouseout="hover = false">Hover Here</span>
+  <span x-show="hover">Shows on Hover</span>
+</div>
+<div class="w-full divide-y divide-stone-300 overflow-hidden rounded-xl border border-slate-300 bg-stone-100/40 text-slate-700">
+  <div x-data="{ isExpanded: false }" class="divide-y divide-slate-300 dark:divide-slate-700">
+      <button id="controlsAccordionItemOne" type="button" class="flex w-full items-center justify-between gap-4 bg-stone-100 p-4 text-left underline-offset-2 
+      hover:bg-stone-200/75 focus-visible:bg-slate-100/75 focus-visible:underline focus-visible:outline-none"  aria-controls="accordionItemOne" 
+      @click="isExpanded = ! isExpanded" :class="isExpanded ? 'text-onSurfaceStrong  font-bold'  : 'text-onSurface font-medium'" :aria-expanded="isExpanded ? 'true' : 'false'">
+        Your answers
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="size-5 shrink-0 transition" 
+               aria-hidden="true" :class="isExpanded  ?  'rotate-180'  :  ''">
+             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+          </svg>
       </button>
-    </h2>
-    
-    <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
-        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+      <div x-cloak x-show="isExpanded" id="accordionItemOne" role="region" aria-labelledby="controlsAccordionItemOne" x-collapse>
+          <div class="p-4 text-sm sm:text-base text-pretty">
             <livewire:edit-answers-form />
-        </div>
-    </div> 
+          </div>
+      </div>
   </div>
-  <script>
-    // Accordion toggle
-        document.getElementById('accordion-collapse-heading-1').addEventListener('click', function (e) {
-            if ( document.getElementById('accordion-collapse-body-1').classList.contains("hidden"))
-                document.getElementById('accordion-collapse-body-1').classList.remove("hidden")
-            else           
-                document.getElementById('accordion-collapse-body-1').classList.add("hidden")            
-        })
-  </script>
+</div>
 </x-app-layout>

@@ -22,14 +22,13 @@ class Customer extends Model
         'how_added'  
     ];
     public function users()    {
-        return $this->belongsTo(User::class, 'users_id');
+        return $this->belongsTo(User::class);
     }
     public function locations()    {
         return $this->belongsTo(Location::class, 'location_id');
     }
-    // public function reviews()    {
-    //     return $this->hasMany(Review::class, 'customer_id');
-    // }
-   
+    public function reviews()    {
+        return $this->hasMany(Review::class, 'customer_id');
+    } 
 
 }

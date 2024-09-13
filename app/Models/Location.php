@@ -18,4 +18,14 @@ class Location extends Model
         'phone',
         'gbp_url',
     ];
+
+    public function companies(){
+        return $this->belongsTo(Company::class, 'company_id');
+    }
+    public function customers(){
+        return $this->hasMany(Customer::class);
+    }
+    public function reviews(){
+        return $this->hasMany(Review::class);
+    }
 }
