@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use App\Models\Visitor;
+use App\Models\Question;
 use Illuminate\Http\Request;
 use App\Mail\AccountNotActive;
 use Illuminate\Support\Facades\Mail;
@@ -24,11 +25,14 @@ class ClientController extends Controller{
                 ->get();
 
             if($location[0]->status === 'active'){
+                Cache::rememberForever('questions', function () {
+                    return Question::all();
+                });
                 $request->session()->put('location', $location[0]); 
                 if($request->has('em')){  
                     //if(getCustomerByEmail($request, $location[0]->client_id, base64_decode($request->query('em')))) {                  
                     if(getCustomerByEmail($request, $location[0]->users_id, $request->query('em'))) {                  
-                       return redirect('/rate')->with('alert-info', 'Thank you for visiting ' . session('cust.first_name')); // Customer is in DB for this client
+                       return redirect('/rate'); // Customer is in DB for this client
                     }else{ //Not in customer table for this client 
                         return redirect('/register')->with('email', $request->query('em'));
                        // return redirect('/register')->with('email', base64_decode($request->query('em')) );

@@ -1,14 +1,11 @@
 <x-app-layout>
-    {{-- @php
-        ray(Cache::get('review')->rate);
-    @endphp --}}
     <div class="progress__bar">       
         <progress class="progress progress-secondary w-56 mx-auto" value="5" max="100"></progress>         
     </div>
     <h2>
     {{ session('cust.first_name')}}, a Two Shakes Review is as easy as 1-2-3:
     </h2> 
-    <div class="main__content flex-col border-2">    
+    <x-main-content class="border-2">     
         <div id="directions" class="direction grid grid-cols-2 gap-4 px-0">
             <div  class="flex flex-col place-items-start">
                 <ol class="list-decimal" start="1">
@@ -32,12 +29,11 @@
             </div>
             <div class="flex flex-col place-items-center">            
             <img src="{{ Vite::asset('resources/images/results.webp')}}" alt="screenshot of results page with the AI generated review"> 
-                {{-- <span class="!text-xs text-center text-balance">Accept the AI generated review:</span> --}}
             </div>  
         </div>    
-        <p class="my-4 self-start">That&apos;s it! You&apos;ll be done in <span class="italic font-bold">Two Shakes</span> of a lamb&apos;s tail.</p>
-    </div>
-    <div id="navigation" class="items-end my-8">          
-        <a id="next" href="startQuestions" type="button" class="next animate-bounce" >Start</a>
-    </div>    
+        <p class="my-4 self-start">That&apos;s it! You&apos;ll be done in <span class="italic font-bold">Two Shakes</span> of a lamb&apos;s tail.</p>      
+        <div id="navigation" class="items-end my-8">          
+            <a id="next" href="{{route('startQuestions')}}" type="button" class="next animate-bounce" >Start the Questions</a>
+        </div>    
+    </x-main-content> 
 </x-app-layout>

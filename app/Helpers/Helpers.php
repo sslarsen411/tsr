@@ -15,6 +15,7 @@ function updateAnswers(string| null $inAnsStr, string|int $dex, string $newAns){
         $ansArr =  unserialize($inAnsStr);
     else
         $ansArr = [];
+ //   ray($newAns);
     $ansArr[$dex] =  $newAns;  
     return serialize($ansArr);
 }

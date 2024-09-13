@@ -1,8 +1,8 @@
 <x-app-layout> 
-    @php
-        $answers = unserialize($review->answers);  
-        ray(session()->all())
-    @endphp
+  @php
+       //$review =  Review::find( session('reviewID')); 
+    //   $answers = unserialize(review->answers);
+  @endphp
     <h2 class="align-middle">
         {{session('cust.first_name')}}, you&apos;re almost done!
     <a href="/finish" type="button" class="animate-bounce text-base btn btn-success mb-4 text-center float-right ">Generate</a>
@@ -18,9 +18,10 @@
         </svg>
       </button>
     </h2>
+    
     <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
         <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-            <livewire:edit-answers-form  :answers="$answers" :review="$review"/>
+            <livewire:edit-answers-form />
         </div>
     </div> 
   </div>

@@ -19,8 +19,11 @@ class RatingStars extends Component{
         ]);
         session()->put('rate', $this->rating);
         session()->put('reviewID', $newReview->id);
-       $revCache =  Cache::put('review', $newReview, 3600);
-      // ray($revCache);
+      // Cache::put('review', $newReview, 3600);
+    //    $review = Cache::remember('review', 3600, function () {
+    //         return Review::where('id', session('reviewID'));
+    //     });
+      //ray($review);
         if($this->rating < session('location.min_rate')){            
            alert()->info('What happened?', 'Tell us what happened and how we can improve your experience');
             return redirect('/care');
