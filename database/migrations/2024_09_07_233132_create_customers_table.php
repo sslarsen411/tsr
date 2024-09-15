@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('last_name', 45)->nullable();
             $table->string('email', 45)->nullable();
             $table->string('phone', 12)->nullable();
+            $table->string('purchase')->nullable();
             $table->enum('state', ['New', 'inSeq', 'Visited'])->default('New');
             $table->enum('how_added', ['client', 'twoshakes', 'other'])->default('client');
             $table->timestamp('created_at')->useCurrent();

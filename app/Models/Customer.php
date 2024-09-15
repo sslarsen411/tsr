@@ -17,7 +17,8 @@ class Customer extends Model
         'first_name',
         'last_name',
         'email',
-        'phone', 
+        'phone',
+        'purchase', 
         'state',
         'how_added'  
     ];
