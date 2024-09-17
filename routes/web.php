@@ -17,6 +17,7 @@ Route::post('/admin/doPrompt', [AdminController::class,"doPrompt"])->name('admin
 
 Route::get('/', [ClientController::class, 'showCorrectPage'])->name('index');
 Route::view('/start', 'pages.start')->name('pages.start');
+Route::view('/addCustomer', 'pages.add-customer')->name('pages.add-customer');
 Route::view('/register', 'pages.register')->name('pages.register');
 
 /* Sign in a visitor */

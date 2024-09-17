@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Filament\Forms\Components\Fieldset;
 use Illuminate\Database\Eloquent\Model;
+use Filament\Forms\Components\TextInput;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Customer extends Model
 {
@@ -31,5 +33,25 @@ class Customer extends Model
     public function reviews()    {
         return $this->hasMany(Review::class, 'customer_id');
     } 
+
+    public static function getForm(){
+        return[        
+            Fieldset::make('Contact Info')
+                ->schema([
+                    TextInput::make('first_name')
+                         ->required(),
+                    TextInput::make('last_name')
+                        ->required(),
+                    TextInput::make('email')
+                        ->required(),
+                    TextInput::make('phone'),
+                    TextInput::make('purchase'),
+                ])
+                ->columns(2),
+            
+
+            
+        ];
+    }
 
 }

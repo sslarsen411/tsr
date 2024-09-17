@@ -133,7 +133,7 @@ return [
     'prohibited_if' => 'The :attribute field is prohibited when :other is :value.',
     'prohibited_unless' => 'The :attribute field is prohibited unless :other is in :values.',
     'prohibits' => 'The :attribute field prohibits :other from being present.',
-    'phone' => 'Enter a 9-digit phone number.',
+   // 'phone' => 'Enter a 9-digit phone number.',
     'regex' => 'The :attribute field format is invalid.',
     'required' => 'The :attribute field is required.',
     'required_array_keys' => 'The :attribute field must contain entries for: :values.',
