@@ -1,7 +1,11 @@
 import './bootstrap';
-//import './twoshakes'
+import { Livewire, Alpine } from '../../vendor/livewire/livewire/dist/livewire.esm';
+ 
+import mask from '@alpinejs/mask' 
+Alpine.plugin(mask) 
+ 
+Livewire.start()
+
 import.meta.glob([
     '../images/**',
   ]);
-  // import swal from 'sweetalert2';
-  // window.Swal = swal;

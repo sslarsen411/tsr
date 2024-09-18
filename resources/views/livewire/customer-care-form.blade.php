@@ -9,7 +9,7 @@
           @error('concerns') <span class="error">{{ $message }}</span> @enderror
           <small>
             Character count: <span x-text="$wire.concerns.length"></span> 
-        </small>
+          </small>
           <div class="self-start flex items-start mb-4">
             <input id="ckCallMe" wire:model.live="ckCallMe" type="checkbox" value=""  
             class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2">
@@ -17,7 +17,7 @@
         </div>      
         <div id="ph_area" class="w-1/2 self-start {{$ckCallMe?'':'hidden'}}">
           <div class="relative z-0 w-full mb-5 group">
-              <input type="tel" wire:model.live="phone" id="phone" placeholder="" 
+              <input type="tel" wire:model.live="phone" id="phone" <input x-mask="(999) 999-9999" 
               class="block py-2.5 px-0 rounded-lg w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 ring-zinc-200 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer" />
              <div class="{{ $ckCallMe && $phone == null? '': 'hidden' }}"><span class="error text-xs text-red-500">Enter a valid US phone number</span></div>
               @error('phone') <span class="error text-xs">{{ $message }}</span> @enderror             

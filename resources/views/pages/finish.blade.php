@@ -50,5 +50,13 @@
         </div>    
         <p class="my-4 self-start">Thanks for using <span class="font-bold text-twoshk_navy">Two Shakes Review</span>.</p>
     </div>
-    <script src="{{ Vite::asset('resources/js/finish.js') }}"></script>
+    <script>
+        const ready = (callback) => {
+            if (document.readyState != "loading") callback()
+            else document.addEventListener("DOMContentLoaded", callback)
+        };
+        ready(() => {
+            navigator.clipboard.writeText(document.getElementById('review').innerText)
+        })        
+   </script>
 </x-app-layout>

@@ -36,7 +36,7 @@ class CustomerCareForm extends Component{
             }
         }
         $this->review =  Review::find( session('reviewID')); 
-        $this->review->update(['review' => $this->concerns], 'status' => 'Negative'); 
+        $this->review->update(['review' => $this->concerns, 'status' => 'Negative']); 
         // Send email to co_email
         Alert::html('We hear you', '<h3 class="text-xl text-balance mb-5"> '. session('location.company'). ' has been notified about your concerns</h3> 
                  <p class="text-balance">They will contact you shortly. A conformation email has been sent to ' . session('cust.email') . '.</p>', 'success')

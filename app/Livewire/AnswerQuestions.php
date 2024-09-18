@@ -22,12 +22,10 @@ class AnswerQuestions extends Component{
     }
     protected function rules() {
         return [
-            'answer' => 'required|min:5|string',
+            'answer' => 'required|string',
         ];
     }
-    public function updated($propertyName){
-        $this->validateOnly($propertyName);
-    }
+ 
     public function submitForm(){
         $this->validate();     
         $questions = Cache::get('questions');
@@ -38,11 +36,7 @@ class AnswerQuestions extends Component{
        $this->dex++;
        if(($this->dex) <= 2):
         $this->question =  $this->question=($questions[$this->dex]);      
-      //  $this->answer = '';  
-    else:  
-        // $this->alert('success', 'Finished! good job.', [
-        //     'position' => 'top'
-        // ]);  
+    else:         
         Alert::success('Congratulations! You&apos;re almost done', 'Just press the green button to generate a review for you to post on Google');      
         return redirect('doReview');
     endif;

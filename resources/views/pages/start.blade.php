@@ -26,7 +26,7 @@
         
         <div class="flex flex-col items-center my-2 mx-auto border-t "> 
             <p class="text-xl mt-5">Share your feedback in &ldquo;<strong>two shakes</strong> of a lamb&apos;s tail.&rdquo;</p>
-            <img src="{{ Vite::asset('resources/images/two-shakes-lambs-md.webp')}}" alt="Our mascot, the Two Shakes AI lamb">        
+            <img src="{{ Vite::asset('resources/images/two-shakes-lambs-md.webp')}}" alt="Our mascot, Shari the Two Shakes AI lamb">                 
         </div>    
         <div class="text-base text-left">
             <p class="mb-5">

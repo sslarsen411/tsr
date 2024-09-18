@@ -35,7 +35,8 @@
         </div>
         <x-footer />  
         @vite('resources/js/app.js')
-        @livewireScripts
+        {{-- @livewireScripts --}}
+        @livewireScriptConfig         {{-- Manually bundling Alpine  --}}
         @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@11"])
         <x-livewire-alert::scripts />        
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>        

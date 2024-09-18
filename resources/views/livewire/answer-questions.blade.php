@@ -13,7 +13,9 @@
                 </p> 
                 <textarea rows="4" class="answer textarea-lg"  wire:model.live="answer" id="answer" ></textarea>
                 @error('answer') <span class="error">{{ $message }}</span> @enderror
-
+                <small>
+                    Character count: <span x-text="$wire.concerns.length"></span> 
+                </small>
             </div>
             <div id="navigation" class="items-end my-8">       
                 <x-secondary-button type="submit" class="float-right">

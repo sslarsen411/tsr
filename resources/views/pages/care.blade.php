@@ -6,6 +6,4 @@
       As a valued customer, we&apos;re committed to addressing your concerns and working together to find solutions that ensure a better experience for you.
   </p>
   <livewire:customer-care-form/>
-  <script src="{{ Vite::asset('resources/js/care.js') }}"></script>
-@endif
 </x-layout>
