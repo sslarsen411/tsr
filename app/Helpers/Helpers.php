@@ -29,7 +29,7 @@ function updateAnswers(string| null $inAnsStr, string|int $dex, string $newAns){
 function getCustomerByEmail(Request $request, $inClient = '', $inEmail = ''){     
     if(  $cust = Customer::where('users_id', $inClient)->where('email', $inEmail )->first()){                
         $request->session()->put('cust', $cust); 
-        $cust->update(['status' => 'Visited']);
+        $cust->update(['state' => 'Visited']);
         Visitor::where('id', session('visitorID'))
         ->update(['customer_id' => $cust->id]);        
         return TRUE;

@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Review;
 use Livewire\Component;
+use App\Rules\AlphaPlus;
 use Illuminate\Support\Facades\Cache;
 use RealRashid\SweetAlert\Facades\Alert;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -19,7 +20,16 @@ class AnswerQuestions extends Component{
         $this->question=($questions[$this->dex]);
         $this->question->question = str_replace('RATE', session('rate'), $this->question->question);          
     }
+    protected function rules() {
+        return [
+            'answer' => 'required|min:5|string',
+        ];
+    }
+    public function updated($propertyName){
+        $this->validateOnly($propertyName);
+    }
     public function submitForm(){
+        $this->validate();     
         $questions = Cache::get('questions');
         $review =  Review::find( session('reviewID')); 
         $currAns = updateAnswers($review->answers, $this->dex, strip_tags($this->answer) ); 
@@ -33,7 +43,7 @@ class AnswerQuestions extends Component{
         // $this->alert('success', 'Finished! good job.', [
         //     'position' => 'top'
         // ]);  
-        Alert::success('Congratulations! You&apos;re almost done', 'Now our AI will generate a review for you to post on Google');      
+        Alert::success('Congratulations! You&apos;re almost done', 'Just press the green button to generate a review for you to post on Google');      
         return redirect('doReview');
     endif;
 

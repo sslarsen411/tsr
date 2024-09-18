@@ -9,8 +9,22 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class RatingStars extends Component{
 
-    public $rating = 0;
-    public function submitForm(){    
+    public $rating=0;    
+    public $isDisabled = true;
+    protected function rules() {
+      return [
+          'rating' => 'required',
+      ];
+  }
+
+  public function updated($propertyName)
+  {
+      $this->validateOnly($propertyName);
+      $this->rating > 0 ?  $this->isDisabled = false :  $this->isDisabled = true;
+  } 
+
+    public function submitForm(){
+      $this->validate();
         $newReview  = Review::create([
             'customer_id' => session('cust.id'),
             'location_id' => session('locID'),
@@ -19,11 +33,7 @@ class RatingStars extends Component{
         ]);
         session()->put('rate', $this->rating);
         session()->put('reviewID', $newReview->id);
-      // Cache::put('review', $newReview, 3600);
-    //    $review = Cache::remember('review', 3600, function () {
-    //         return Review::where('id', session('reviewID'));
-    //     });
-      //ray($review);
+
         if($this->rating < session('location.min_rate')){            
            alert()->info('What happened?', 'Tell us what happened and how we can improve your experience');
             return redirect('/care');

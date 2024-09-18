@@ -14,11 +14,9 @@ class AlphaPlus implements ValidationRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        if (! is_string($value) && ! is_numeric($value)) {
-            fail()
+        if (! is_string($value) && ! is_numeric($value) && ! preg_match('/\A[\pL\pM\pN\']+\z/u', $value)) {
+            $fail('Letters and numbers only');
         }
 
-      
-        return preg_match('/\A[\pL\pM\pN]+\z/u', $value) > 0;
     }
 }

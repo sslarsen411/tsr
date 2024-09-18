@@ -22,7 +22,11 @@
             <div>
                 <ol class="list-decimal">
                     <li>
-                        Click/tap the button above
+                    @desktop
+                        Click
+                      @elsedesktop
+                        Tap 
+                      @enddesktop the button above
                     </li>
                     <li>
                         Enter your star rating
@@ -31,7 +35,12 @@
                         Paste your review
                     </li>
                     <li>
-                        Click or tap Post &mdash; Done!
+                        @desktop
+                        Click
+                      @elsedesktop
+                        Tap 
+                      @enddesktop 
+                         Post &mdash; Done!
                     </li>
                 </ol>
             </div>      

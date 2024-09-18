@@ -11,10 +11,12 @@
                 <p id="question" class="question self-start">
                     {{$question->question}}
                 </p> 
-                <textarea rows="4" class="answer textarea-lg"  wire:model.blur="answer" id="answer" ></textarea>
+                <textarea rows="4" class="answer textarea-lg"  wire:model.live="answer" id="answer" ></textarea>
+                @error('answer') <span class="error">{{ $message }}</span> @enderror
+
             </div>
             <div id="navigation" class="items-end my-8">       
-                <x-secondary-button type="submit" disable="false" class="float-right">
+                <x-secondary-button type="submit" class="float-right">
                     Next
                 </x-secondary-button>    
             </div>

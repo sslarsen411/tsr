@@ -7,6 +7,9 @@
           <textarea rows="4" class="answer textarea-lg"  wire:model.live="concerns" x-data="{ name: '{{$concerns}}' }" id="concerns">{{ $concerns }}         
           </textarea>
           @error('concerns') <span class="error">{{ $message }}</span> @enderror
+          <small>
+            Character count: <span x-text="$wire.concerns.length"></span> 
+        </small>
           <div class="self-start flex items-start mb-4">
             <input id="ckCallMe" wire:model.live="ckCallMe" type="checkbox" value=""  
             class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2">
