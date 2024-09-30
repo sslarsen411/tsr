@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../tsfil"
+		},
+		{
+			"path": "../tspfil"
 		}
 	],
 	"settings": {}

@@ -10,12 +10,12 @@ class Location extends Model
     use HasFactory;
     public $table = 'locations';
     protected $fillable = [
-        'company_id',
-        'google_accountID',
-        'google_locationID',
+        'users_id',  
         'addr',
         'zip',
         'phone',
+        'google_accountID',
+        'google_locationID',
         'gbp_url',
     ];
 
